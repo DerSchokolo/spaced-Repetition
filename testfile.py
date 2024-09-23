@@ -1,5 +1,5 @@
 from classes import *
-from toJSON import WriteToJSON
+from toJSON import toJSON
 
 decks = Decks()
 decks.createDeck("Deck1")
@@ -12,4 +12,4 @@ decks.decks[1].createCard("front2", "back2")
 
 print(decks)
 
-WriteToJSON(decks)
+toJSON(decks)
