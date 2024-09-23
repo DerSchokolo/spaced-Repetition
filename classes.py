@@ -3,13 +3,9 @@ import json
 
 GlobalIdCard = 0
 class Card:
-    def __init__(self, front, back):
-        global GlobalIdCard
-        self.id = GlobalIdCard
-        GlobalIdCard = GlobalIdCard + 1
-
-        self.date = datetime.datetime.now().date()
-
+    def __init__(self, id, date, front, back):
+        self.id = id
+        self.date = date
         self.front = front
         self.back = back
 
@@ -44,19 +40,17 @@ class Card:
 
 GlobalIDDeck = 0
 class Deck:
-    def __init__(self, Name):
-        global GlobalIDDeck
-        self.id = GlobalIDDeck
-        GlobalIDDeck = GlobalIDDeck + 1
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
         self.cards = []
 
-        self.Name = Name
 
     def addCard(self, card):
         self.cards.append(card)
 
     def __str__(self):
-        return "ID: " + str(self.id) + " NAME: " + self.Name + " CARDS: " + str(self.cards)
+        return "ID: " + str(self.id) + " NAME: " + self.name + " CARDS: " + str(self.cards)
 
     def learnDeck(self):
         date = datetime.datetime.now().date()
@@ -71,7 +65,7 @@ class Deck:
 
         return {
             'id': self.id,
-            'name': self.Name,
+            'name': self.name,
             'cards': cards
         }
 
