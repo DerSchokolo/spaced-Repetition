@@ -1,4 +1,5 @@
 import datetime
+import json
 
 GlobalIdCard = 0
 class Card:
@@ -29,6 +30,17 @@ class Card:
         else:
             print("ERROR")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'date': str(self.date),  # Convert date to string to make it JSON serializable
+            'front': self.front,
+            'back': self.back
+        }
+
+    # Method to export object to JSON
+    def to_json(self):
+        return json.dumps(self.to_dict(), indent=4)
 
 GlobalIDDeck = 0
 class Deck:
@@ -51,3 +63,18 @@ class Deck:
         for card in self.cards:
             if card.date == date:
                 card.showCard()
+
+    def to_dict(self):
+        cards = []
+        for card in self.cards:
+            cards.append(card.to_dict())
+
+        return {
+            'id': self.id,
+            'name': self.Name,
+            'cards': cards
+        }
+
+    # Method to export object to JSON
+    def to_json(self):
+        return json.dumps(self.to_dict(), indent=4)

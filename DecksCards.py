@@ -11,3 +11,9 @@ Deck1.addCard(card2)
 Deck1.addCard(card3)
 
 Deck1.learnDeck()
+
+print(Deck1.to_json())
+
+f = open("data.json", "w")
+f.write(Deck1.to_json())
+f.close()
