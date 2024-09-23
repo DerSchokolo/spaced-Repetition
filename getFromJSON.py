@@ -20,3 +20,5 @@ def getFromJSON():
             # Create and add a new card to the current deck
             card = Card(card_data['id'], card_data['date'], card_data['front'], card_data['back'])
             current_deck.addCard(card)
+
+    return decks

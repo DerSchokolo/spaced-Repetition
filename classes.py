@@ -59,8 +59,11 @@ class Deck:
 
     def learnDeck(self):
         date = datetime.datetime.now().date()
+        print(date)
         for card in self.cards:
-            if card.date == date:
+            print(str(card.id) + " " + str(card.date))
+            if str(card.date) == str(date):
+                print("hi")
                 card.showCard()
 
     def to_dict(self):
@@ -72,6 +75,9 @@ class Deck:
 
     def to_json(self):
         return json.dumps(self.to_dict(), indent=4)
+
+    def NumberOfCards(self):
+        return len(self.cards)
 
 class Decks:
     def __init__(self):
@@ -96,3 +102,6 @@ class Decks:
 
     def __str__(self):
         return f"Decks: {len(self.decks)}"
+
+    def NumberofDecks(self):
+        return len(self.decks)
